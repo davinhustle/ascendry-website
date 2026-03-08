@@ -1,14 +1,11 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Nav() {
   return (
     <nav id="main-nav">
       <Link href="#" className="nav-logo">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 8 L88 88 H72 L50 38 L28 88 H12 Z" fill="#C9B47A"/>
-          <path d="M38 65 H62" stroke="#080807" strokeWidth="10"/>
-          <path d="M42 65 L50 48 L58 65" fill="#C9B47A"/>
-        </svg>
+        <Image src="/logo-icon-dark.svg" alt="Ascendry" width={34} height={34} />
         <span className="nav-wordmark">Ascendry</span>
       </Link>
       <ul className="nav-links">
