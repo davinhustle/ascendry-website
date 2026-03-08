@@ -2,7 +2,7 @@
 
 :root {
   --black:   #080807;
-  --dark:    #16232b;
+  --dark:    #111110;
   --card:    #161614;
   --gold:    #ead8b9;
   --gold-lt: #E2D4A8;
@@ -240,10 +240,10 @@ a.pillar { text-decoration: none; color: inherit; }
   font-size: 28px; font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 12px;
 }
 .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-.card-pattern-1 { background: linear-gradient(135deg, #1a1a18 0%, #0d1a15 50%, #1a1208 100%); }
+.card-pattern-1 { background: linear-gradient(135deg, #1a1a18 0%, #151310 50%, #1a1208 100%); }
 .card-pattern-2 { background: linear-gradient(135deg, #0d0d0d 0%, #1a150d 100%); }
-.card-pattern-3 { background: linear-gradient(135deg, #0a0f1a 0%, #0d1a0d 100%); }
-.card-pattern-4 { background: linear-gradient(135deg, #1a0a0a 0%, #0a1a1a 100%); }
+.card-pattern-3 { background: linear-gradient(135deg, #12110e 0%, #1a1710 100%); }
+.card-pattern-4 { background: linear-gradient(135deg, #1a1410 0%, #141210 100%); }
 .card-geo {
   position: absolute; inset: 0; opacity: 0.15;
   display: flex; align-items: center; justify-content: center;
@@ -365,4 +365,24 @@ footer {
 }
 @media (max-width: 768px) {
   .services-grid { grid-template-columns: 1fr; }
+}
+
+/* MOBILE NAV */
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-mobile-menu span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  transition: all 0.3s;
+}
+@media (max-width: 768px) {
+  .nav-mobile-menu { display: flex; }
+  .nav-links, .nav-cta { display: none; }
 }

@@ -50,10 +50,33 @@ export default function ClientScripts() {
     }
     window.addEventListener('scroll', handleScroll)
 
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn')
+    const navLinks = document.querySelector('.nav-links')
+    const handleMobileMenu = () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none'
+      } else {
+        navLinks.style.display = 'flex'
+        navLinks.style.flexDirection = 'column'
+        navLinks.style.position = 'absolute'
+        navLinks.style.top = '80px'
+        navLinks.style.left = '0'
+        navLinks.style.right = '0'
+        navLinks.style.background = 'rgba(8,8,7,0.98)'
+        navLinks.style.padding = '24px'
+        navLinks.style.gap = '24px'
+      }
+    }
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener('click', handleMobileMenu)
+    }
+
     // Cleanup on unmount
     return () => {
       document.removeEventListener('mousemove', moveCursor)
       window.removeEventListener('scroll', handleScroll)
+      if (mobileBtn) mobileBtn.removeEventListener('click', handleMobileMenu)
     }
   }, [])
 

@@ -4,23 +4,14 @@ import { useEffect, useRef } from 'react'
 const CARD_IDS = ['service-social', 'service-web', 'service-onlineshop', 'service-cgi']
 
 export default function Services() {
-  const refSocial      = useRef(null)
-  const refWeb         = useRef(null)
-  const refOnlineshop  = useRef(null)
-  const refCgi         = useRef(null)
-  const refs = {
-    'service-social':     refSocial,
-    'service-web':        refWeb,
-    'service-onlineshop': refOnlineshop,
-    'service-cgi':        refCgi,
-  }
-  const current = useRef(null)
+  const cardRefs    = useRef({})
+  const current     = useRef(null)
   const readyToClear = useRef(false)
 
   const highlight = (id) => {
-    if (current.current) refs[current.current]?.current?.classList.remove('service-card--highlighted')
+    if (current.current) cardRefs.current[current.current]?.classList.remove('service-card--highlighted')
     current.current = id
-    if (id) refs[id]?.current?.classList.add('service-card--highlighted')
+    if (id) cardRefs.current[id]?.classList.add('service-card--highlighted')
   }
 
   useEffect(() => {
@@ -41,6 +32,8 @@ export default function Services() {
     if (current.current === id && readyToClear.current) highlight(null)
   }
 
+  const setRef = (id) => (el) => { cardRefs.current[id] = el }
+
   return (
     <section id="services" style={{padding: '160px 0', background: 'var(--dark)'}}>
       <div className="section-inner">
@@ -49,7 +42,7 @@ export default function Services() {
           Unsere <em style={{fontStyle: 'italic', color: 'var(--gold)'}}>Leistungen</em>
         </h2>
         <div className="services-grid">
-          <div ref={refs['service-social']} className="service-card reveal reveal-delay-1" id="service-social" onMouseLeave={() => onLeave('service-social')}>
+          <div ref={setRef('service-social')} className="service-card reveal reveal-delay-1" id="service-social" onMouseLeave={() => onLeave('service-social')}>
             <div className="service-icon">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-5 4V8a2 2 0 0 1 1-1.73"/>
@@ -60,7 +53,7 @@ export default function Services() {
             <div className="service-title">Social Media Management</div>
             <div className="service-desc">Wir konzipieren, produzieren und steuern Content, der wirklich performt – mit Fokus auf Reels, Ads und Community-Bindung. Für Marken, die auffallen und im Feed bleiben.</div>
           </div>
-          <div ref={refs['service-web']} className="service-card reveal reveal-delay-2" id="service-web" onMouseLeave={() => onLeave('service-web')}>
+          <div ref={setRef('service-web')} className="service-card reveal reveal-delay-2" id="service-web" onMouseLeave={() => onLeave('service-web')}>
             <div className="service-icon">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="5" width="24" height="18" rx="2"/>
@@ -73,7 +66,7 @@ export default function Services() {
             <div className="service-title">Websites & Onlineshops</div>
             <div className="service-desc">Wir entwickeln performante Websites mit klarem Design, intuitiver UX und optimierter Ladezeit – gebaut für Vertrauen, Wiedererkennung und Conversion.</div>
           </div>
-          <div ref={refs['service-onlineshop']} className="service-card reveal reveal-delay-3" id="service-onlineshop" onMouseLeave={() => onLeave('service-onlineshop')}>
+          <div ref={setRef('service-onlineshop')} className="service-card reveal reveal-delay-3" id="service-onlineshop" onMouseLeave={() => onLeave('service-onlineshop')}>
             <div className="service-icon">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 3h3l2.4 12h12l2.6-8H8"/>
@@ -84,7 +77,7 @@ export default function Services() {
             <div className="service-title">Onlineshop & E-Commerce</div>
             <div className="service-desc">Conversionstarke Shopify-Setups, smartes UX-Design und technischer Feinschliff – für digitale Verkaufsflächen, die nicht nur funktionieren, sondern verkaufen.</div>
           </div>
-          <div ref={refs['service-cgi']} className="service-card reveal reveal-delay-4" id="service-cgi" onMouseLeave={() => onLeave('service-cgi')}>
+          <div ref={setRef('service-cgi')} className="service-card reveal reveal-delay-4" id="service-cgi" onMouseLeave={() => onLeave('service-cgi')}>
             <div className="service-icon">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 3L17 9L23 10L18.5 14.5L19.5 21L14 18L8.5 21L9.5 14.5L5 10L11 9L14 3Z"/>

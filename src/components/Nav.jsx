@@ -10,10 +10,16 @@ export default function Nav() {
       </Link>
       <ul className="nav-links">
         <li><Link href="#about">Über uns</Link></li>
+        <li><Link href="#services">Leistungen</Link></li>
         <li><Link href="#portfolio">Portfolio</Link></li>
         <li><Link href="#contact">Kontakt</Link></li>
       </ul>
       <Link href="#contact" className="nav-cta">Gespräch starten</Link>
+      <div className="nav-mobile-menu" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   )
 }
