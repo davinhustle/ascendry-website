@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react'
 const CARD_IDS = ['service-social', 'service-web', 'service-onlineshop', 'service-cgi']
 
 export default function Services() {
-  const cardRefs    = useRef({})
-  const current     = useRef(null)
+  const cardRefs = useRef({})
+  const current = useRef(null)
   const readyToClear = useRef(false)
 
   const highlight = (id) => {
@@ -29,7 +29,13 @@ export default function Services() {
   }, [])
 
   const onLeave = (id) => {
-    if (current.current === id && readyToClear.current) highlight(null)
+    if (current.current !== id || !readyToClear.current) return
+
+    highlight(null)
+
+    if (window.location.hash === `#${id}`) {
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+    }
   }
 
   const setRef = (id) => (el) => { cardRefs.current[id] = el }
@@ -50,7 +56,7 @@ export default function Services() {
                 <path d="M20 6v4M18 8h4" strokeWidth="1.5"/>
               </svg>
             </div>
-            <div className="service-title">Social Media Management</div>
+            <h3 className="service-title">Social Media Management</h3>
             <div className="service-desc">Wir konzipieren, produzieren und steuern Content, der wirklich performt – mit Fokus auf Reels, Ads und Community-Bindung. Für Marken, die auffallen und im Feed bleiben.</div>
           </div>
           <div ref={setRef('service-web')} className="service-card reveal reveal-delay-2" id="service-web" onMouseLeave={() => onLeave('service-web')}>
@@ -63,7 +69,7 @@ export default function Services() {
                 <circle cx="13" cy="7.5" r="0.8" fill="var(--gold)"/>
               </svg>
             </div>
-            <div className="service-title">Websites & Onlineshops</div>
+            <h3 className="service-title">Websites & Onlineshops</h3>
             <div className="service-desc">Wir entwickeln performante Websites mit klarem Design, intuitiver UX und optimierter Ladezeit – gebaut für Vertrauen, Wiedererkennung und Conversion.</div>
           </div>
           <div ref={setRef('service-onlineshop')} className="service-card reveal reveal-delay-3" id="service-onlineshop" onMouseLeave={() => onLeave('service-onlineshop')}>
@@ -74,7 +80,7 @@ export default function Services() {
                 <circle cx="20" cy="22" r="1.5"/>
               </svg>
             </div>
-            <div className="service-title">Onlineshop & E-Commerce</div>
+            <h3 className="service-title">Onlineshop & E-Commerce</h3>
             <div className="service-desc">Conversionstarke Shopify-Setups, smartes UX-Design und technischer Feinschliff – für digitale Verkaufsflächen, die nicht nur funktionieren, sondern verkaufen.</div>
           </div>
           <div ref={setRef('service-cgi')} className="service-card reveal reveal-delay-4" id="service-cgi" onMouseLeave={() => onLeave('service-cgi')}>
@@ -84,7 +90,7 @@ export default function Services() {
                 <circle cx="14" cy="14" r="2"/>
               </svg>
             </div>
-            <div className="service-title">Markeninszenierung</div>
+            <h3 className="service-title">Markeninszenierung</h3>
             <div className="service-desc">Wir bauen Marken, die man nicht vergisst. Von der visuellen Identität über CGI-Produktionen bis zur physischen Markenwelt – wir schaffen Wiedererkennung, die verkauft.</div>
           </div>
         </div>

@@ -7,11 +7,13 @@ export default function PortfolioFilter() {
   const [active, setActive] = useState('Alle')
 
   return (
-    <div className="portfolio-filter reveal">
+    <div className="portfolio-filter reveal" role="group" aria-label="Projektfilter">
       {filters.map(f => (
         <button
+          type="button"
           key={f}
           className={`filter-btn ${active === f ? 'active' : ''}`}
+          aria-pressed={active === f}
           onClick={() => setActive(f)}
         >
           {f}

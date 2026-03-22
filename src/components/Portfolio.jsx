@@ -19,7 +19,7 @@ export default function Portfolio() {
             <span className="card-num">01</span>
             <div className="card-content">
               <div className="card-tag">E-Commerce · Shopify</div>
-              <div className="card-title">Vollständiger Markenauftritt & Shop</div>
+              <h3 className="card-title">Vollständiger Markenauftritt & Shop</h3>
               <div className="card-desc">Von der Markenentwicklung bis zum conversionoptimierten Onlineshop – alles aus einer Hand.</div>
             </div>
           </div>
@@ -30,7 +30,7 @@ export default function Portfolio() {
             <span className="card-num">02</span>
             <div className="card-content">
               <div className="card-tag">CGI · 3D-Produktion</div>
-              <div className="card-title">Produktvisualisierung Automotive</div>
+              <h3 className="card-title">Produktvisualisierung Automotive</h3>
               <div className="card-desc">High-End CGI Renders für physische Markenartikel.</div>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Portfolio() {
             <span className="card-num">03</span>
             <div className="card-content">
               <div className="card-tag">Social Media · Content</div>
-              <div className="card-title">Content-Strategie & Reels-Produktion</div>
+              <h3 className="card-title">Content-Strategie & Reels-Produktion</h3>
               <div className="card-desc">Wachstum durch datengestützte Content-Systeme.</div>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Portfolio() {
             <span className="card-num">04</span>
             <div className="card-content">
               <div className="card-tag">Web · UX</div>
-              <div className="card-title">Website für lokalen Premium-Betrieb</div>
+              <h3 className="card-title">Website für lokalen Premium-Betrieb</h3>
               <div className="card-desc">Klares Design, starke Conversion, schnelle Ladezeiten.</div>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Portfolio() {
             <span className="card-num">05</span>
             <div className="card-content">
               <div className="card-tag">Branding · Identity</div>
-              <div className="card-title">Markenidentität für Startup</div>
+              <h3 className="card-title">Markenidentität für Start-up</h3>
               <div className="card-desc">Logo, Sprache, visuelle Systeme – vom ersten Tag an.</div>
             </div>
           </div>
